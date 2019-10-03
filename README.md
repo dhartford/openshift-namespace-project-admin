@@ -11,5 +11,5 @@ Purge orphaned 'running' pipelines - important, this does not distinguish betwee
 
   * oc login....
   * oc project <project>
-  * for pod in $(oc get pods | grep 'Error\|Evicted\|Completed' | awk '{print $1}'); do oc delete pod --grace-period=1 ${pod}; done
+  * for build in $(oc get builds | grep JenkinsPipeline | grep Running | awk '{print $1}'); do oc delete build ${build}; done
 
